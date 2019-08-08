@@ -18,9 +18,9 @@ public class Login {
 			System.out.println("-----SWACHH BHARATH APP----");
 			System.out.println("       --LOGIN HERE--       ");
 			System.out.println("Enter your email here");
-			Email1=sc.nextLine();
+			this.Email1=sc.nextLine();
 			System.out.println("Enter your password");
-			Password=sc.nextLine();
+			this.Password=sc.nextLine();
 			System.out.println("--You have Successfully logged in--");
 		}
 		public void register()
@@ -28,16 +28,16 @@ public class Login {
 			
 			Scanner s=new Scanner(System.in);
 			System.out.println("Enter your Name here:");
-			Name1=s.nextLine();
+			this.Name1=s.nextLine();
 			System.out.println("Enter your Email ID:");
-			Email1=s.nextLine();
+			this.Email1=s.nextLine();
 			System.out.println("Enter a password with only characters");
 			Password=s.nextLine();
 			System.out.println("Re-enter the password for verification");
 			Password2=s.nextLine();
 			if(Password.equals(Password2))
 			{
-				System.out.println("--You have successfully Registered");
+				System.out.println("--You have successfully Registered--");
 				
 			}
 			else
@@ -49,7 +49,7 @@ public class Login {
 				Password2=s.nextLine();
 				if(Password.equals(Password2))
 				{
-					System.out.println("--You have successfully Registered");
+					System.out.println("--You have successfully Registered--");
 					
 				}
 				
