@@ -6,12 +6,13 @@ import java.io.*;
 
 public class Login  
 {
-	    static String Brand;
+	    static String str1,Evename,Evedesc,Evedate;
+	    static String Brand,bname,boffer,bex;
 	    static String Material;
 	    static String Status;
 		static int weight,Duracell,Amaron,Exide,Nipon;
 		static int points,batteries,scrap,electronic,automobile;
-		static int sum=0;
+		static int sum=0,badd=0;
 		static String Name1;
 		static String Email1;
 		static String Name2;
@@ -20,8 +21,8 @@ public class Login
 		static String Email3;
 	    public String Password;
 	    public String Password2;
-	    static int Plastic=0, Glass=0, Metal=0,Cadburys=0,Parle=0,Nestle=0,Amul=0;
-	    static int cocacola=0,thumbsup=0,mountainDew=0,Pepsi=0,Maaza=0;
+	    static int Plastic=0, Glass=0, Metal=0,Cadburys=0,Parle=0,Nestle=0,Amul=0,brand=0;
+	    static int cocacola=0,thumbsup=0,mountainDew=0,Pepsi=0,Maaza=0,events=0;
 		public void login()
 		{
 			Scanner sc=new Scanner(System.in);
@@ -81,28 +82,28 @@ public class Login
 			c=w.nextInt();
 			if(c==1)
 				{
-				System.out.println("You have entered the deposit section");
+				System.out.println("    -----DEPOSIT SECTION------   ");
 				depositWaste();	
 				}
 			else if(c==2)
 			{
-				System.out.println("You have entered the Status section");
+				System.out.println("    ----STATUS SECTION------     ");
 				checkStatus();
 			}
 			else if(c==3)
 			{
-				System.out.println("You have entered the Events section");
+				System.out.println("     -----CHECK EVENTS SECTION----    ");
 				checkEvents();
 			}
 			else if(c==4)
 			{
-				System.out.println("You have entered the AdvertiseEvents section");
-				//advertiseEvent();
+				System.out.println("     -----ADVERTISE YOUR EVENTS SECTION------  ");
+				advertiseEvent();
 			}
 			else if(c==5)
 			{
-				System.out.println("You have entered the AdvertiseBrands section");
-				//advertiseBrand();
+				System.out.println("  ----- ADVERTISE YOUR BRANDS SECTION--- -");
+				advertiseBrand();
 			}
 			else if(c==6)
 			{
@@ -155,27 +156,23 @@ public class Login
 			  if(v==1)
 			  {
 				  cocacola++;
-				  System.out.println("Enter the weight of the product");
 				  Weight();
 				  
 			  }
 			  else if(v==2)
 			  {
 				  thumbsup++;
-				  System.out.println("Enter the weight of the product");
 				  Weight();
 			  }
 			  else if(v==3)
 			  {
 				  mountainDew++;
-				  System.out.println("Enter the weight of the product");
 				  Weight();
 
 			  }
 			  else if(v==4)
 			  {
 				  Pepsi++;
-				  System.out.println("Enter the weight of the product");
 				  Weight();
 
 			  }
@@ -194,27 +191,23 @@ public class Login
 				  if(v==1)
 				  {
 					  Amul++;
-					  System.out.println("Enter the weight of the product");
 					  Weight();
 					  
 				  }
 				  else if(v==2)
 				  {
 					  Nestle++;
-					  System.out.println("Enter the weight of the product");
 					  Weight();
 				  }
 				  else if(v==3)
 				  {
 					  Parle++; 
-					  System.out.println("Enter the weight of the product");
 					  Weight();
 
 				  }
 				  else if(v==4)
 				  {
 					  Cadburys++;
-					  System.out.println("Enter the weight of the product");
 					  Weight();
 
 				  }
@@ -248,27 +241,23 @@ public class Login
 			  if(v==1)
 			  {
 				  cocacola++;
-				  System.out.println("Enter the weight of the product");
 				  Weight();
 				  
 			  }
 			  else if(v==2)
 			  {
 				  thumbsup++;
-				  System.out.println("Enter the weight of the product");
 				  Weight();
 			  }
 			  else if(v==3)
 			  {
 				  Maaza++;
-				  System.out.println("Enter the weight of the product");
 				  Weight();
 
 			  }
 			  else if(v==4)
 			  {
 				  Pepsi++;
-				  System.out.println("Enter the weight of the product");
 				  Weight();
 
 			  }
@@ -304,27 +293,23 @@ public class Login
 			  if(v==1)
 			  {
 				  Duracell++;
-				  System.out.println("Enter the weight of the product");
 				  Weight();
 				  
 			  }
 			  else if(v==2)
 			  {
 				  Amaron++;
-				  System.out.println("Enter the weight of the product");
 				  Weight();
 			  }
 			  else if(v==3)
 			  {
 				  Exide++;
-				  System.out.println("Enter the weight of the product");
 				  Weight();
 
 			  }
 			  else if(v==4)
 			  {
 				  Nipon++;
-				  System.out.println("Enter the weight of the product");
 				  Weight();
 
 			  }
@@ -344,6 +329,7 @@ public class Login
 	  }
 	public void Weight()
 	{
+		System.out.println("Enter the weight of the product");
 		Scanner o=new Scanner(System.in);
 		int wt=o.nextInt();
 		int q;
@@ -351,9 +337,7 @@ public class Login
 		{
 		  q=wt/10;
 		 points=5*(q+1);
-		 System.out.println("Congratulations!! You have scored "+points+" points");
-		 sum=sum+points;
-		 Status();
+		 congrats();
 		}
 		else if(Material=="Glass")
 		{
@@ -361,17 +345,12 @@ public class Login
 			{
 				q=wt/30;
 				points=((q*20)-((q-1)*10));
-				System.out.println("Congratulations!! You have scored "+points+" points");
-				sum=sum+points;
-				Status();
+				congrats();
 			}
 			else if((0<wt)&&(wt<30))
 			{
 				points=10;
-				System.out.println("Congratulations!! You have scored "+points+" points");
-				sum=sum+points;
-				Status();
-			}
+				congrats();			}
 				
 		}
 		else if(Material=="Metal")
@@ -380,22 +359,19 @@ public class Login
 		     {
 		    	 q=wt/50;
 		    	 points=q*20;
-		    	 System.out.println("Congratulations!! You have scored "+points+" points");
-		    	 sum=sum+points;
-		    	 Status();
+		    	 congrats();
 		     }
 		     else if((0<wt)&&(wt<50))
 		     {
 		    	 points=10;
-		    	 System.out.println("Congratulations!! You have scored "+points+" points");
-		    	 sum=sum+points;
-		    	 Status();
+		    	 congrats();
 		     }
 		}
 		
 	}
 	public void Welcome()
 	{
+		//if((str1=="No")||(str1=="no")||(str1=="NO"))
 		 System.out.println("----Welcome "+this.Name1+"----");
 	}
 	public void checkStatus()
@@ -406,22 +382,73 @@ public class Login
 	public void checkEvents()
 	{
 		if(events==0)
+		{
              System.out.println("There are no events yet! Visit again after sometime for more updates!!");
+		     Status();
+		}
+		else
+		{
+			System.out.println("=-=-=-=---EVENTS----=-=-=-");
+			add();
+			if(brand>0) {
+			System.out.println("=-=-=-=---ADVERTISEMENTS----=-=-=-");
+            badd();}
+			Status();
+		}
+		
 	}
+	public void congrats() 
+	{
+		 System.out.println("Congratulations!! You have scored "+points+" points");
+		 sum=sum+points;
+		 Status();
+	}
+   public void advertiseEvent() 
+   {
+	   Scanner d=new Scanner(System.in);
+	   System.out.println("Enter the Event name:");
+	   Evename=d.nextLine();
+	   System.out.println("Enter the event description");
+	   Evedesc=d.nextLine();
+	   System.out.println("Enter the event date and time");
+	   Evedate=d.nextLine();
+	   events++;
+	   Status();
+   }
+	   public void add()
+	   {
+	    System.out.println(" "+Evename);
+		System.out.println(" "+Evedesc);
+		System.out.println(" "+Evedate);
+	   }
 
+   public void advertiseBrand()
+   {
+	  Scanner d=new Scanner(System.in);
+	  System.out.println("enter the Brand Name:");
+	  bname=d.nextLine();
+	  System.out.println("Enter the Brand desc:");
+	  boffer=d.nextLine();
+	  System.out.println("Enter the extra information if any");
+	  bex=d.nextLine();
+	  brand++;
+	  Status();
+   }
+	  public void badd()
+	  {
+	  System.out.println(" "+bname);
+	  System.out.println(" "+boffer);
+	  System.out.println(" "+bex);
+	  Status();
+	  }
 	public static void main(String[] args) {
-		 String str1;
-		 String str="yes";
-		 String str3="Yes";
 		 Scanner ss=new Scanner(System.in);
 		 System.out.println("-----SWACHH BHARATH APP----");
 		 Login s=new Login();
 		 System.out.println("Are you a registered user?");
 	     str1=ss.nextLine();
-		 if(str1.equals(str))
+		 if((str1=="yes")||(str1=="Yes")||(str1=="YES"))
 		     s.login();
-		 else if(str1.equals(str3))
-			 s.login();
 		 else
 			 s.register();
 		 s.Welcome();
