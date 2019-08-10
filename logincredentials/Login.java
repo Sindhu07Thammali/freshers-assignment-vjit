@@ -424,6 +424,8 @@ public class Login
 	  {
 	  System.out.println(" "+bname);
 	  System.out.println(" "+boffer);
+	  
+	  
 	  System.out.println(" "+bex);
 	  Status();
 	  }
@@ -433,8 +435,13 @@ public class Login
 		 Login s=new Login();
 		 System.out.println("Are you a registered user?");
 	     str1=ss.nextLine();
-		 if((str1=="yes")||(str1=="Yes")||(str1=="YES"))
+	     String str2="Yes", str3="yes",str4="YES";
+		 if(str1.equals(str2))
 		     s.login();
+		 else if(str1.equals(str3))
+			 s.login();
+		 else if(str1.equals(str4))
+			 s.login();
 		 else
 			 s.register();
 		 s.Welcome();
